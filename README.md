@@ -5,4 +5,4 @@ This fun little python simulation project was created as a result of the author 
 
 `start_app.py` launches the GUI
 
-`terminal_sim.py` contains a very simple script to run the simulation on the command-line. Users will have to manual modify this script if they wish to alter the output parameters
+`terminal_sim.py` contains a very simple script to run the simulation on the command-line. Users will have to manually modify this script if they wish to alter the output parameters
