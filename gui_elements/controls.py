@@ -1,3 +1,5 @@
+import tkinter
+from gui_elements.view_elements import GoFView
 from gui_elements.canvas_sim import CanvasSim
 import tkinter as tk
 from tkinter import DISABLED, ACTIVE
@@ -147,6 +149,7 @@ class AppControls:
         )
 
 
+
     def sim_grid_dimY(self, dim_W: tk.Widget, other: tk.Widget, reset_button: tk.Widget):
         """
         Set the grid size y control
@@ -202,7 +205,7 @@ class AppControls:
         dim_W.configure(
             textvariable=self._pattern_x,
             from_ =0,
-            to=int(TkAppVariables.grid_x.get())-1,
+            to=int(self._grid_x.get())-1,
             validate="focusout",
             validatecommand=pos_x
         )
@@ -224,7 +227,7 @@ class AppControls:
         dim_W.configure(
             textvariable=self._pattern_y,
             from_ =0,
-            to=int(TkAppVariables.grid_y.get())-1,
+            to=int(self._grid_y.get())-1,
             validate="focusout",
             validatecommand=pos_y
         )
@@ -279,7 +282,7 @@ class AppControls:
         )
 
 
-    def sim_reset(self, reset_W:tk.Widget, canvas_sim:CanvasSim):
+    def sim_reset(self, reset_W:tk.Widget, canvas_sim:CanvasSim, pos_x:tk.Widget, pos_y:tk.Widget):
         """
         Set the controls for the reset button
         """ 
@@ -293,6 +296,14 @@ class AppControls:
             self._run_widget.configure(
                 textvariable=self._run
             )
+            pos_x.configure(
+                to=int(TkAppVariables.grid_x.get())-1
+            )
+            
+            pos_y.configure(
+                to=int(TkAppVariables.grid_y.get())-1
+            )
+            self._root.update()
 
         reset_W.configure(
             command=reset
