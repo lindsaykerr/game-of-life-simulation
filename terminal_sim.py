@@ -8,23 +8,20 @@ import random
 x_size = 20
 y_size = 20
 
-
-grid = WorldGrid(x_size,y_size)
+grid = WorldGrid(x_size, y_size)
 
 # Generate random living cells
 for x in range(200):
     random.seed()
     randx = random.randrange(0, x_size)
     randy = random.randrange(0, y_size)
-    grid.switch_cell(randx,randy)
-
+    grid.switch_cell(randx, randy)
 
 grid.print_grid()
 
 counter = 0
 
 while grid.active_cells > 0 and counter < 100:
-    
     grid.next_stage()
     grid.print_grid()
     counter += 1
@@ -32,4 +29,3 @@ while grid.active_cells > 0 and counter < 100:
 
 # print(grid.get_grid())
 print("Levels", grid.access_times)
-    
